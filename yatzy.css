@@ -192,9 +192,7 @@
 
 
 /*----media queries-------*/
-
-
-/*---mobil anpassad-------*/
+/*------------------------*/
 @media (min-width: 300px ){
   #yatzy-table {
     font-size: 1.2em;

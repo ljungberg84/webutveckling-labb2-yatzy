@@ -49,7 +49,6 @@ Vue.component('dice', {
   methods: {
 
     setSelected(index){
-      console.log(index);
       store.commit('setSelected', index);
     },
   }
@@ -61,11 +60,9 @@ const store = new Vuex.Store({
 
   state: {
 
-    count: 0,
-
-    gameOver: false,
-
-    yatzyTable: [
+    count: 0,//keep track of number of rolls
+    
+    yatzyTable: [//models the yatzy table
 
       {name: 'Aces',        value: 0, locked: false}, 
       {name: 'Twos',        value: 0, locked: false},
@@ -101,14 +98,14 @@ const store = new Vuex.Store({
 
   mutations: {
     
-    add(state, index){
+    add(state, index){//add value to yatzy table
       column = state.yatzyTable[index]
       if(!column.locked){
         if(state.count !== 0){
           column.locked = true;
         }
       }
-      checkResults();
+      checkResults();//check if game over
     },
     
     setSelected(state, index){
@@ -129,7 +126,7 @@ const store = new Vuex.Store({
       }
     },
 
-    resetDices(state){
+    resetDices(state){// resets after every round
       state.count = 0;
       for(let i=0; i<5; i++){
         state.dices[i].selected = false;
@@ -142,7 +139,7 @@ const store = new Vuex.Store({
       });
     },
 
-    resetGame(state){
+    resetGame(state){// resets after completed game
       state.count = 0;
       table = state.yatzyTable
       table.forEach(row => {
@@ -152,10 +149,9 @@ const store = new Vuex.Store({
       table[6].locked = true;
       table[7].locked = true;
       table[17].locked = true;
-
     },
 
-    //--------------checking-and-placing-values-in-1st-section-of-table-------------------------------//
+    //--------------validating-and-placing-values-in-1st-section-of-table-------------------------------//
 
     displayValues(state){
       sorted = store.getters.sortedDiceValues;
@@ -166,7 +162,7 @@ const store = new Vuex.Store({
         }
       }
 
-      //-------------checking-and-placing-values-in-2nd-section-of-table-------------------------------//
+      //-------------validating-and-placing-values-in-2nd-section-of-table-------------------------------//
       table[6].value = store.getters.bonus;
       table[7].value = store.getters.section1Score;
       for(let i=8; i<17; i++){
@@ -269,8 +265,7 @@ const app = new Vue({
 //-----------------------------------------------------------//
 
 //-----------validating-1st-section-of-table-----------------//
-
-function getSuggestions(value, sortedDices){
+function getSuggestions(value, sortedDices){//validates values for the first six rows in yatzy table
 
   occurance = 0;
     sortedDices.forEach(Dicevalue => {
@@ -282,8 +277,7 @@ function getSuggestions(value, sortedDices){
       return occurance * value;    
 }
 
-//----------validating-2nd-section-of-table------------------//
-
+//----------functions-validating-2nd-section-of-table------------------//
 function checkPair(values){
 
   for(let i=0; i<values.length-1;i++){
