@@ -4,6 +4,9 @@
   border: 0;
   /* background: rgb(80,94,177); */
   background: rgb(36, 107, 97);
+  font-family: 'Wendy One', sans-serif;
+  
+
 }
 
 .locked {
@@ -16,10 +19,12 @@
   background:rgb(14, 80, 71);
   text-align: center;
   /* color: white; */
-  color: rgb(170, 130, 57);
+  /* color: rgb(170, 130, 57); */
+  color: rgb(170, 104, 57);
+
 
   padding: 30px;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
   font-family: 'Wendy One', sans-serif;
   font-size: 4em;
   /* padding-top: 1em;
@@ -41,62 +46,87 @@
 }
 
 .pColumn :nth-child(even){
-  background: rgb(138, 194, 167);
+  /* background: rgb(138, 194, 167); */
+  background: rgb(255, 225, 170);
   
 }
 
 .pColumn :nth-child(odd){
-  background: rgb(130, 176, 154);
+  /* background: rgb(130, 176, 154); */
+  background: rgb(212, 175, 106);
 }
 
 .value-table {
   text-align: left;
   float: left;
   /* border: 1px solid grey; */
+  color: rgb(35, 54, 87);
 }
 
 .value-column {
-  width: 5em;
+  width: 7em;
   float: left;
   text-align: left;
 }
 
 .value-column :nth-child(even){
-  background: rgb(128, 187, 157);
+  /* background: rgb(128, 187, 157); */
+  background: rgb(212, 175, 106);
+
 }
 
 .value-column :nth-child(odd){
-  background: rgb(119, 168, 144);
+  /* background: rgb(119, 168, 144); */
+  background: rgb(255, 225, 170);
+
+}
+
+.value-column :first-child {
+  border-top-left-radius: 10px;
+}
+
+.value-column :last-child {
+  border-bottom-left-radius: 10px;
 }
 
 
 .player-table {
   float: left;
   /* border: 1px solid grey; */
-  width: 5em;
+  width: 7em;
   text-align: center;
-  color: white;
+  /* color: white; */
+  color: rgb(170, 104, 57);
 }
 
 .player-column {
-  width: 5em;
+  width: 7em;
   height: 5em;
   float: left;
   text-align: center;
   border: 1px solid black;
 }
 
+.pColumn :first-child {
+  border-top-right-radius: 10px;
+}
+
+.pColumn :last-child {
+  border-bottom-right-radius: 10px;
+}
+
 .value-div {
   /* border: 1px solid black; */
-  width: 5em;
+  width: 7em;
   height: 1.8em;
   display: flex;
   align-items: center;
+  padding-left: 4px;
 }
 
 .column-div {
   /* border: 1px solid black; */
-  width: 5em;
+  width: 7em;
   height: 1.8em;
   display: flex;
   justify-content: center;
@@ -110,8 +140,11 @@
 }
 
 .selected {
+  color: rgb(35, 54, 87);
+
   /* background: pink; */
-  color: black;
+  /* color:rgb(128, 90, 21); */
+  /* color: white; */
 }
 
 /* disable roll button */
@@ -126,13 +159,15 @@
   width: 80px;
   height: 80px;
   float: left;
-  margin: 2px;
+  margin: 3px;
   vertical-align: middle;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 200%;
-  background: rgb(170, 130, 57)
+  /* background: rgb(170, 130, 57); */
+  background: rgb(170, 104, 57);
+
 }
 
 .disabled {
@@ -142,10 +177,13 @@
 .dice-button {
   text-align: center;
   height: 4em;
-  width: 6em;
+  width: 7em;
   margin-top: 20px;
   border-radius: 10px;
-  background: rgb(170, 130, 57)
+  /* background: rgb(170, 130, 57); */
+  background: rgb(170, 104, 57);
+  padding: 0;
+  font-size: 1em;
 }
 
 .selectedDice {
