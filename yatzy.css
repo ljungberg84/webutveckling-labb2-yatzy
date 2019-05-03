@@ -21,10 +21,12 @@
   /* color: white; */
   /* color: rgb(170, 130, 57); */
   color: rgb(170, 104, 57);
+  padding: 1.4em;
+  font-size: 8em;
   /* color: rgb(212, 150, 106); */
 
 
-  padding: 30px;
+  /* padding: 30px; */
   margin-bottom: 0.4em;
   font-family: 'Wendy One', sans-serif;
   font-size: 4em;
@@ -44,6 +46,7 @@
   margin-right: auto;
   display: inline-block;
   border-radius: 10px;
+  /* font-size: 2em; */
 }
 
 #yatzy-table:hover {
@@ -68,8 +71,12 @@
   color: rgb(35, 54, 87);
 }
 
+
+/* sätta with */
 .value-column {
-  width: 7em;
+  width: 22em;
+  height: 3.5em;
+  /* height: 1.8em; */
   float: left;
   text-align: left;
 }
@@ -87,52 +94,58 @@
 }
 
 .value-column :first-child {
-  border-top-left-radius: 10px;
+  border-top-left-radius: 2em;
 }
 
 .value-column :last-child {
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 2em;
 }
 
 
 .player-table {
   float: left;
   /* border: 1px solid grey; */
-  width: 7em;
+  /* width: 20em; */
   text-align: center;
   /* color: white; */
   color: rgb(170, 104, 57);
+  /* height: 50vh; */
+
 }
 
 .player-column {
-  width: 7em;
-  height: 5em;
+  /* width: 20em; */
+  /* height: 50vh; */
+  height: 3.5em;
   float: left;
   text-align: center;
   /* border: 1px solid black; */
 }
 
 .pColumn :first-child {
-  border-top-right-radius: 10px;
+  border-top-right-radius: 2em;
 }
 
 .pColumn :last-child {
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 2em;
 }
 
 .value-div {
   /* border: 1px solid black; */
-  width: 7em;
-  height: 1.8em;
+  width: 22em;
+  height: 3.5em;
   display: flex;
   align-items: center;
   padding-left: 4px;
 }
 
+
+/* räckte för width, w 7em, h 1.8em */
 .column-div {
   /* border: 1px solid black; */
-  width: 7em;
-  height: 1.8em;
+  width: 22em;
+  height: 3.5em;
+  /* height: 7%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,10 +178,10 @@
 
 .dice {
   /* border: 2px solid rgb(212, 175, 106); */
-  border-radius: 10px;
+  border-radius: 0.8em;
   align-content: center;
-  width: 80px;
-  height: 80px;
+  width: 4.5em;
+  height: 4.5em;
   float: left;
   margin: 3px;
   vertical-align: middle;
