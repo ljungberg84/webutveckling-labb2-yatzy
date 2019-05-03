@@ -1,61 +1,38 @@
 
 Vue.component('yatzy-table', {
 
-  template: `
-  <div id="yatzy-table">
-    <value-table>
-      <value-column></value-column>
-    </value-table>
-      <player-table>
-        <player-column></player-column>
-    </player-table>
-  </div>
-  `
-});
-
-Vue.component('value-table', {
-
-  template:`
-    <div class="value-table">
-      <slot></slot>
-    </div>
-  `
-});
-
-Vue.component('value-column', {
+  // template: `
+  // <div id="yatzy-table">
+  //   <value-table>
+  //     <value-column></value-column>
+  //   </value-table>
+  //     <player-table>
+  //       <player-column></player-column>
+  //   </player-table>
+  // </div>
+  // `
 
   template: `
-    <div class="value-column">
-      <div class="value-div" v-for="obj in store.state.yatzyTable">{{ obj.name }}</div>
-    </div>
-  `
-});
-
-Vue.component('player-table', {
-
-  template:`
-    <div class="player-table">
-      <slot></slot>
-    </div>
-  `
-});
-
-Vue.component('player-column', {
-
-  template: `
-    <div class="pColumn">
-      <div class="column-div"
-      v-for="player, index in store.state.players"
-      v-for="obj, index in store.state.yatzyTable"
-      v-bind:index="index"
-      v-model:value="obj.value"
-      v-on:click="addValue(index)"
-      v-bind:class="{locked:store.getters.yatzyTable[index].locked, selected: store.getters.yatzyTable[index].locked}">
-      {{ obj.value }}
+    <div id="yatzy-table">
+      <div id="value-table">
+        <div class="value-div" v-for="obj in store.getters.yatzyTable">
+        {{ obj.name }}
+        </div>
+      </div>
+      <div id="player-table">
+        <div class="player-div"
+          v-for="player, index in store.state.players"
+          v-for="obj, index in store.state.yatzyTable"
+          v-bind:index="index"
+          v-model:value="obj.value"
+          v-on:click="addValue(index)"
+          v-bind:class="{locked:store.getters.yatzyTable[index].locked, selected: store.getters.yatzyTable[index].locked}">
+          {{ obj.value }}
+        </div>
       </div>
     </div>
   `,
-  
+
   methods: {
 
     addValue: function(index){
@@ -71,6 +48,65 @@ Vue.component('player-column', {
     }
   }
 });
+
+// Vue.component('value-table', {
+
+//   template:`
+//     <div class="value-table">
+//       <slot></slot>
+//     </div>
+//   `
+// });
+
+// Vue.component('value-column', {
+
+//   template: `
+//     <div class="value-column">
+//       <div class="value-div" v-for="obj in store.state.yatzyTable">{{ obj.name }}</div>
+//     </div>
+//   `
+// });
+
+// Vue.component('player-table', {
+
+//   template:`
+//     <div class="player-table">
+//       <slot></slot>
+//     </div>
+//   `
+// });
+
+// Vue.component('player-column', {
+
+//   template: `
+//     <div class="pColumn">
+//       <div class="column-div"
+//       v-for="player, index in store.state.players"
+//       v-for="obj, index in store.state.yatzyTable"
+//       v-bind:index="index"
+//       v-model:value="obj.value"
+//       v-on:click="addValue(index)"
+//       v-bind:class="{locked:store.getters.yatzyTable[index].locked, selected: store.getters.yatzyTable[index].locked}">
+//       {{ obj.value }}
+//       </div>
+//     </div>
+//   `,
+  
+//   methods: {
+
+//     addValue: function(index){
+//       //alert("button clicked at index: " + index);
+      
+//       if(!store.getters.yatzyTable[index].locked){
+//         store.commit('add', index);
+//         store.commit('resetDices');
+//       }
+    
+      
+//       //store.state.yatzyTable[index].value = store.state.diceValue;
+//     }
+//   }
+// });
 
 Vue.component('dice', {
 
@@ -108,24 +144,24 @@ const store = new Vuex.Store({
 
     yatzyTable: [
 
-      {name: 'Aces',        value: null, locked: false}, 
-      {name: 'Twos',        value: null, locked: false},
-      {name: 'Threes',      value: null, locked: false}, 
-      {name: 'Fours',       value: null, locked: false},
-      {name: 'Fives',       value: null, locked: false}, 
-      {name: 'Sixes',       value: null, locked: false},
-      {name: 'Bonus',       value: null, locked: true}, 
-      {name: 'Total',       value: null, locked: true},
-      {name: 'Pair',        value: null, locked: false, validation: checkPair}, 
-      {name: 'Two Pair',    value: null, locked: false, validation: checkTwoPair},
-      {name: '3 of a kind', value: null, locked: false, validation: checkTriplets}, 
-      {name: '4 of a kind', value: null, locked: false, validation: checkFours},
-      {name: 'Sm Straight', value: null, locked: false, validation: checkSLadder},
-      {name: 'Lg Straight', value: null, locked: false, validation: checkBLadder}, 
-      {name: 'Full House',  value: null, locked: false, validation: checkFullHouse}, 
-      {name: 'Yatzy',       value: null, locked: false, validation: checkYatzy}, 
-      {name: 'Chance',      value: null, locked: false, validation: checkChance}, 
-      {name: 'Total',       value: null, locked:true}
+      {name: 'Aces',        value: 0, locked: false}, 
+      {name: 'Twos',        value: 0, locked: false},
+      {name: 'Threes',      value: 0, locked: false}, 
+      {name: 'Fours',       value: 0, locked: false},
+      {name: 'Fives',       value: 0, locked: false}, 
+      {name: 'Sixes',       value: 0, locked: false},
+      {name: 'Bonus',       value: 0, locked: true}, 
+      {name: 'Total',       value: 0, locked: true},
+      {name: 'Pair',        value: 0, locked: false, validation: checkPair}, 
+      {name: 'Two Pair',    value: 0, locked: false, validation: checkTwoPair},
+      {name: '3 of a kind', value: 0, locked: false, validation: checkTriplets}, 
+      {name: '4 of a kind', value: 0, locked: false, validation: checkFours},
+      {name: 'Sm Straight', value: 0, locked: false, validation: checkSLadder},
+      {name: 'Lg Straight', value: 0, locked: false, validation: checkBLadder}, 
+      {name: 'Full House',  value: 0, locked: false, validation: checkFullHouse}, 
+      {name: 'Yatzy',       value: 0, locked: false, validation: checkYatzy}, 
+      {name: 'Chance',      value: 0, locked: false, validation: checkChance}, 
+      {name: 'Total',       value: 0, locked: true}
     ],
 
     dices: [
@@ -137,12 +173,6 @@ const store = new Vuex.Store({
       {name: 'dice5', value: 'Y', selected: false}
     ],
 
-    players: [
-
-      {name: 'player1'}, 
-      {name: 'player2'}, 
-      {name: 'player3'}
-    ],
     yatzy: ["Y", "A", "T", "Z", "Y"]
   },
 
@@ -151,7 +181,9 @@ const store = new Vuex.Store({
     add(state, index){
       column = state.yatzyTable[index]
       if(!column.locked){
-        column.locked = true;
+        if(column.value !== 0){
+          column.locked = true;
+        }
       }
     },
     
@@ -175,14 +207,15 @@ const store = new Vuex.Store({
 
     resetDices(state){
       state.count = 0;
-      for(let i=0; i<6; i++){
+      for(let i=0; i<5; i++){
         state.dices[i].selected = false;
         state.dices[i].value = state.yatzy[i];
       }
-      
-      // state.dices.forEach(dice => {
-      //   dice.selected = false;
-      // });
+      state.yatzyTable.forEach(row => {
+        if (!row.locked){
+          row.value = 0;
+        }
+      });
     },
 
     //--------------checking-and-placing-values-in-1st-section-of-table-------------------------------//
@@ -197,13 +230,13 @@ const store = new Vuex.Store({
       }
 
       //-------------checking-and-placing-values-in-2nd-section-of-table-------------------------------//
-  
+      table[6].value = store.getters.bonus;
       table[7].value = store.getters.section1Score;
       for(let i=8; i<17; i++){
         row = table[i];
         row.value = (!row.locked ? row.validation(sorted): row.value);
       }
-      table[17].value = store.getters.section1Score + store.getters.section2Score;
+      table[17].value = store.getters.section1Score + store.getters.totalScore;
     }
   },
 
@@ -233,7 +266,7 @@ const store = new Vuex.Store({
 
     totalScore(state, getters){
       let score = 0;
-      for(let i=9; i<18; i++){
+      for(let i=8; i<17; i++){
         if(getters.yatzyTable[i].locked === true){
         score += getters.yatzyTable[i].value;
         }
@@ -245,7 +278,7 @@ const store = new Vuex.Store({
       if(getters.section1Score >= 63){
         return 50;
       }
-      return null;
+      return 0;
     },
 
     dices(state){
@@ -410,7 +443,7 @@ function checkYatzy(values){
 }
 
 function checkChance(values){
-  sum =0;
+  sum = 0;
   values.forEach(value => sum += value);
   return sum;
 }

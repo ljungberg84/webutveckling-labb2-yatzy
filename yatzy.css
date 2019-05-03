@@ -2,36 +2,19 @@
   margin: 0;
   padding: 0;
   border: 0;
-  /* background: rgb(80,94,177); */
   background: rgb(36, 107, 97);
   font-family: 'Wendy One', sans-serif;
   
 
 }
 
-.locked {
-  background: rgb(243, 243, 223);
-  /* border-radius: 10px; */
-}
-
 #greeting {
-  /* border: solid 2px crimson; */
   background:rgb(14, 80, 71);
   text-align: center;
-  /* color: white; */
-  /* color: rgb(170, 130, 57); */
   color: rgb(170, 104, 57);
-  padding: 1.4em;
-  font-size: 8em;
-  /* color: rgb(212, 150, 106); */
-
-
-  /* padding: 30px; */
-  margin-bottom: 0.4em;
-  font-family: 'Wendy One', sans-serif;
-  font-size: 4em;
-  /* padding-top: 1em;
-  padding-bottom: 1.5em; */
+  padding: 0.5em;
+  font-size: 7em;
+  margin-bottom: 0.7em;
 }
 
 #main-table {
@@ -40,115 +23,79 @@
 
 }
 
+/*---------------------yatzy-table-------------------*/
+/* ------------------------------------------------- */
+
 #yatzy-table {
-  /* margin-top: 1em; */
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  border-radius: 10px;
-  /* font-size: 2em; */
+  font-size: 3em;
+ 
 }
 
 #yatzy-table:hover {
   cursor: pointer;
 }
 
-.pColumn :nth-child(even){
-  /* background: rgb(138, 194, 167); */
-  background: rgb(255, 225, 170);
-  
-}
+/*--------------------value table--------------------*/
+/* ------------------------------------------------- */
 
-.pColumn :nth-child(odd){
-  /* background: rgb(130, 176, 154); */
-  background: rgb(212, 175, 106);
-}
-
-.value-table {
-  text-align: left;
+#value-table {
+  width: 7em;
   float: left;
-  /* border: 1px solid grey; */
+  text-align: left;
   color: rgb(35, 54, 87);
 }
 
-
-/* sätta with */
-.value-column {
-  width: 22em;
-  height: 3.5em;
-  /* height: 1.8em; */
-  float: left;
-  text-align: left;
-}
-
-.value-column :nth-child(even){
-  /* background: rgb(128, 187, 157); */
+#value-table :nth-child(even){
   background: rgb(212, 175, 106);
-
 }
 
-.value-column :nth-child(odd){
-  /* background: rgb(119, 168, 144); */
+#value-table :nth-child(odd){
   background: rgb(255, 225, 170);
-
 }
 
-.value-column :first-child {
-  border-top-left-radius: 2em;
+#value-table :first-child {
+  border-top-left-radius: 10px;
 }
 
-.value-column :last-child {
-  border-bottom-left-radius: 2em;
-}
-
-
-.player-table {
-  float: left;
-  /* border: 1px solid grey; */
-  /* width: 20em; */
-  text-align: center;
-  /* color: white; */
-  color: rgb(170, 104, 57);
-  /* height: 50vh; */
-
-}
-
-.player-column {
-  /* width: 20em; */
-  /* height: 50vh; */
-  height: 3.5em;
-  float: left;
-  text-align: center;
-  /* border: 1px solid black; */
-}
-
-.pColumn :first-child {
-  border-top-right-radius: 2em;
-}
-
-.pColumn :last-child {
-  border-bottom-right-radius: 2em;
+#value-table :last-child {
+  border-bottom-left-radius: 10px;
 }
 
 .value-div {
-  /* border: 1px solid black; */
-  width: 22em;
-  height: 3.5em;
-  display: flex;
-  align-items: center;
-  padding-left: 4px;
+  padding-left: 10px;
 }
 
 
-/* räckte för width, w 7em, h 1.8em */
-.column-div {
-  /* border: 1px solid black; */
-  width: 22em;
-  height: 3.5em;
-  /* height: 7%; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* -------------------player table------------------ */
+/* ------------------------------------------------- */
+
+#player-table {
+  float: left;
+  color: rgb(170, 104, 57);
+  width: 7em;
+
+}
+
+#player-table :nth-child(even) {
+  background: rgb(255, 225, 170);
+}
+
+#player-table :nth-child(odd) {
+  background: rgb(212, 175, 106);
+}
+
+#player-table :first-child {
+  border-top-right-radius: 10px;
+}
+
+#player-table :last-child{
+  border-bottom-right-radius: 10px;
+}
+
+.player-div {
 }
 
 .column-div:hover {
@@ -157,27 +104,11 @@
   /* background: black; */
 }
 
-.dice-div {
-  margin: 20px auto 0 auto;
-  display: inline-block;
-
-}
-
 .selected {
   color: rgb(35, 54, 87);
-
-  /* background: pink; */
-  /* color:rgb(128, 90, 21); */
-  /* color: white; */
 }
 
-/* disable roll button */
-/* .disabled {
-  background: rgb(128, 90, 21)
-} */
-
 .dice {
-  /* border: 2px solid rgb(212, 175, 106); */
   border-radius: 0.8em;
   align-content: center;
   width: 4.5em;
@@ -188,11 +119,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 200%;
-  /* background: rgb(170, 130, 57); */
+  font-size: 2em;
   background: rgb(170, 104, 57);
   color: rgb(35, 54, 87);
 
+
+}
+
+.dice-div {
+  margin: 5em auto 0 auto;
+  display: inline-block;
 
 }
 
@@ -206,15 +142,13 @@
 
 .dice-button {
   text-align: center;
-  /* height: 4em;
-  width: 7em; */
-  margin-top: 20px;
+  margin-top: 1.5em;
   border-radius: 10px;
-  /* background: rgb(170, 130, 57); */
   background: rgb(170, 104, 57);
-  padding: 0.4em 1em 0.4em 1em;
-  font-size: 2em;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 1.5em;
   color: rgb(35, 54, 87);
+  font-size: 3em;
 
 }
 
