@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* background: rgb(80,94,177); */
+  background: rgb(36, 107, 97);
+}
+
+.locked {
+  background: rgb(243, 243, 223);
+  /* border-radius: 10px; */
+}
+
+#greeting {
+  /* border: solid 2px crimson; */
+  background:rgb(14, 80, 71);
+  text-align: center;
+  /* color: white; */
+  color: rgb(170, 130, 57);
+
+  padding: 30px;
+  margin-bottom: 0.5em;
+  font-family: 'Wendy One', sans-serif;
+  font-size: 4em;
+  /* padding-top: 1em;
+  padding-bottom: 1.5em; */
+}
+
+#main-table {
+  align-items: center;
+  text-align: center;
+
+}
+
+#yatzy-table {
+  /* margin-top: 1em; */
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.pColumn :nth-child(even){
+  background: rgb(138, 194, 167);
+  
+}
+
+.pColumn :nth-child(odd){
+  background: rgb(130, 176, 154);
+}
+
+.value-table {
+  text-align: left;
+  float: left;
+  /* border: 1px solid grey; */
+}
+
+.value-column {
+  width: 5em;
+  float: left;
+  text-align: left;
+}
+
+.value-column :nth-child(even){
+  background: rgb(128, 187, 157);
+}
+
+.value-column :nth-child(odd){
+  background: rgb(119, 168, 144);
+}
+
+
+.player-table {
+  float: left;
+  /* border: 1px solid grey; */
+  width: 5em;
+  text-align: center;
+  color: white;
+}
+
+.player-column {
+  width: 5em;
+  height: 5em;
+  float: left;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.value-div {
+  /* border: 1px solid black; */
+  width: 5em;
+  height: 1.8em;
+  display: flex;
+  align-items: center;
+}
+
+.column-div {
+  /* border: 1px solid black; */
+  width: 5em;
+  height: 1.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice-div {
+  margin: 20px auto 0 auto;
+  display: inline-block;
+
+}
+
+.selected {
+  /* background: pink; */
+  color: black;
+}
+
+/* disable roll button */
+/* .disabled {
+  background: rgb(128, 90, 21)
+} */
+
+.dice {
+  /* border: 2px solid rgb(212, 175, 106); */
+  border-radius: 10px;
+  align-content: center;
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin: 2px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  background: rgb(170, 130, 57)
+}
+
+.disabled {
+  background: rgb(128, 90, 21)
+}
+
+.dice-button {
+  text-align: center;
+  height: 4em;
+  width: 6em;
+  margin-top: 20px;
+  border-radius: 10px;
+  background: rgb(170, 130, 57)
+}
+
+.selectedDice {
+  background: rgb(128, 90, 21)
+
+}
