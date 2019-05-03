@@ -25,7 +25,6 @@
 
 /*---------------------yatzy-table-------------------*/
 /* ------------------------------------------------- */
-
 #yatzy-table {
   margin-left: auto;
   margin-right: auto;
@@ -40,7 +39,6 @@
 
 /*--------------------value table--------------------*/
 /* ------------------------------------------------- */
-
 #value-table {
   width: 7em;
   float: left;
@@ -63,6 +61,24 @@
 #value-table :last-child {
   border-bottom-left-radius: 10px;
 }
+/*---------separate color for bonus and score rows------*/
+#value-table :nth-child(7){
+  color: rgb(170, 104, 57);
+  color: rgb(128, 65, 21);
+
+}
+
+#value-table :nth-child(8){
+  color: rgb(170, 104, 57);
+  color: rgb(128, 65, 21);
+
+}
+
+#value-table :nth-child(18){
+  color: rgb(170, 104, 57);
+  color: rgb(128, 65, 21);
+
+}
 
 .value-div {
   padding-left: 10px;
@@ -71,7 +87,6 @@
 
 /* -------------------player table------------------ */
 /* ------------------------------------------------- */
-
 #player-table {
   float: left;
   color: rgb(170, 104, 57);
@@ -95,7 +110,23 @@
   border-bottom-right-radius: 10px;
 }
 
-.player-div {
+/*---------separate color for bonus and score rows------*/
+#player-table :nth-child(7){
+  color: rgb(128, 65, 21);
+}
+
+#player-table :nth-child(8){
+  color: rgb(128, 65, 21);
+
+}
+
+#player-table :nth-child(18){
+  color: rgb(128, 65, 21);
+
+}
+
+.selected {
+  color: rgb(35, 54, 87);
 }
 
 .column-div:hover {
@@ -104,8 +135,11 @@
   /* background: black; */
 }
 
-.selected {
-  color: rgb(35, 54, 87);
+
+/*--------dices-------------*/
+.dice-div {
+  margin: 5em auto 0 auto;
+  display: inline-block;
 }
 
 .dice {
@@ -126,9 +160,8 @@
 
 }
 
-.dice-div {
-  margin: 5em auto 0 auto;
-  display: inline-block;
+.selectedDice {
+  background: rgb(128, 65, 21);
 
 }
 
@@ -139,7 +172,7 @@
 .disabled {
   background: rgb(128, 90, 21)
 }
-
+/*---------dice button---------*/
 .dice-button {
   text-align: center;
   margin-top: 1.5em;
@@ -157,8 +190,41 @@
 
 }
 
-.selectedDice {
-  /* background: rgb(128, 90, 21); */
-  background: rgb(128, 65, 21);
 
+/*----media queries-------*/
+
+@media only screen and (min-width :600px){
+  #yatzy-table {
+    font-size: 1.5em;
+  }
+
+  #greeting {
+    padding: 0.5em;
+    font-size: 3.5em;
+    margin-bottom: 0.7em;
+  }
+
+  .dice-div {
+    margin: 2.2em auto 0 auto;
+    display: inline-block;
+  }
+
+  .dice {
+    border-radius: 0.6em;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 3px;
+    font-size: 2em;
+  }
+
+  .dice-button {
+    text-align: center;
+    margin-top: 0.8em;
+    border-radius: 10px;
+    background: rgb(170, 104, 57);
+    padding: 0.5em 1em 0.5em 1em;
+    color: rgb(35, 54, 87);
+    font-size: 2em;
+  
+  }
 }

@@ -1,17 +1,6 @@
 
 Vue.component('yatzy-table', {
 
-  // template: `
-  // <div id="yatzy-table">
-  //   <value-table>
-  //     <value-column></value-column>
-  //   </value-table>
-  //     <player-table>
-  //       <player-column></player-column>
-  //   </player-table>
-  // </div>
-  // `
-
   template: `
     <div id="yatzy-table">
       <div id="value-table">
@@ -36,77 +25,14 @@ Vue.component('yatzy-table', {
   methods: {
 
     addValue: function(index){
-      //alert("button clicked at index: " + index);
       
       if(!store.getters.yatzyTable[index].locked){
         store.commit('add', index);
         store.commit('resetDices');
       }
-    
-      
-      //store.state.yatzyTable[index].value = store.state.diceValue;
     }
   }
 });
-
-// Vue.component('value-table', {
-
-//   template:`
-//     <div class="value-table">
-//       <slot></slot>
-//     </div>
-//   `
-// });
-
-// Vue.component('value-column', {
-
-//   template: `
-//     <div class="value-column">
-//       <div class="value-div" v-for="obj in store.state.yatzyTable">{{ obj.name }}</div>
-//     </div>
-//   `
-// });
-
-// Vue.component('player-table', {
-
-//   template:`
-//     <div class="player-table">
-//       <slot></slot>
-//     </div>
-//   `
-// });
-
-// Vue.component('player-column', {
-
-//   template: `
-//     <div class="pColumn">
-//       <div class="column-div"
-//       v-for="player, index in store.state.players"
-//       v-for="obj, index in store.state.yatzyTable"
-//       v-bind:index="index"
-//       v-model:value="obj.value"
-//       v-on:click="addValue(index)"
-//       v-bind:class="{locked:store.getters.yatzyTable[index].locked, selected: store.getters.yatzyTable[index].locked}">
-//       {{ obj.value }}
-//       </div>
-//     </div>
-//   `,
-  
-//   methods: {
-
-//     addValue: function(index){
-//       //alert("button clicked at index: " + index);
-      
-//       if(!store.getters.yatzyTable[index].locked){
-//         store.commit('add', index);
-//         store.commit('resetDices');
-//       }
-    
-      
-//       //store.state.yatzyTable[index].value = store.state.diceValue;
-//     }
-//   }
-// });
 
 Vue.component('dice', {
 
@@ -131,16 +57,13 @@ Vue.component('dice', {
 
 
 
-
-
-
-
-
 const store = new Vuex.Store({
 
   state: {
 
     count: 0,
+
+    gameOver: false,
 
     yatzyTable: [
 
@@ -181,10 +104,11 @@ const store = new Vuex.Store({
     add(state, index){
       column = state.yatzyTable[index]
       if(!column.locked){
-        if(column.value !== 0){
+        if(state.count !== 0){
           column.locked = true;
         }
       }
+      checkResults();
     },
     
     setSelected(state, index){
@@ -218,6 +142,19 @@ const store = new Vuex.Store({
       });
     },
 
+    resetGame(state){
+      state.count = 0;
+      table = state.yatzyTable
+      table.forEach(row => {
+        row.value = 0;
+        row.locked = false;
+      });
+      table[6].locked = true;
+      table[7].locked = true;
+      table[17].locked = true;
+
+    },
+
     //--------------checking-and-placing-values-in-1st-section-of-table-------------------------------//
 
     displayValues(state){
@@ -236,7 +173,7 @@ const store = new Vuex.Store({
         row = table[i];
         row.value = (!row.locked ? row.validation(sorted): row.value);
       }
-      table[17].value = store.getters.section1Score + store.getters.totalScore;
+      table[17].value = store.getters.totalScore;
     }
   },
 
@@ -271,7 +208,7 @@ const store = new Vuex.Store({
         score += getters.yatzyTable[i].value;
         }
       }
-      return score;
+      return score + getters.section1Score;
     },
 
     bonus(state, getters){
@@ -298,11 +235,6 @@ const store = new Vuex.Store({
     },
   }
 });
-
-
-
-
-
 
 
 
@@ -333,11 +265,6 @@ const app = new Vue({
 
 
 
-
-
-
-
-
 //-------------------helper-functions------------------------//
 //-----------------------------------------------------------//
 
@@ -345,7 +272,6 @@ const app = new Vue({
 
 function getSuggestions(value, sortedDices){
 
-  console.log("show values");
   occurance = 0;
     sortedDices.forEach(Dicevalue => {
       
@@ -448,5 +374,14 @@ function checkChance(values){
   return sum;
 }
 
-//----------------------------------------------------------------------------//
-//----------------------------------------------------------------------------//
+function checkResults(){
+  table = store.getters.yatzyTable;
+  for(let i=0; i<table.length; i++){
+    if(!table[i].locked){
+      return;
+    }
+  }
+  alert("congratulations, you got " + store.getters.totalScore + " points!!")
+  store.commit('resetDices');
+  store.commit('resetGame');
+}
