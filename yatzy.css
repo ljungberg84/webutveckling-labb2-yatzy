@@ -21,6 +21,7 @@
   /* color: white; */
   /* color: rgb(170, 130, 57); */
   color: rgb(170, 104, 57);
+  /* color: rgb(212, 150, 106); */
 
 
   padding: 30px;
@@ -43,6 +44,10 @@
   margin-right: auto;
   display: inline-block;
   border-radius: 10px;
+}
+
+#yatzy-table:hover {
+  cursor: pointer;
 }
 
 .pColumn :nth-child(even){
@@ -104,7 +109,7 @@
   height: 5em;
   float: left;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .pColumn :first-child {
@@ -131,6 +136,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.column-div:hover {
+  color: rgb(35, 54, 87);
+  cursor: pointer;
+  /* background: black; */
 }
 
 .dice-div {
@@ -167,7 +178,13 @@
   font-size: 200%;
   /* background: rgb(170, 130, 57); */
   background: rgb(170, 104, 57);
+  color: rgb(35, 54, 87);
 
+
+}
+
+.dice:hover {
+  cursor: pointer;
 }
 
 .disabled {
@@ -176,17 +193,25 @@
 
 .dice-button {
   text-align: center;
-  height: 4em;
-  width: 7em;
+  /* height: 4em;
+  width: 7em; */
   margin-top: 20px;
   border-radius: 10px;
   /* background: rgb(170, 130, 57); */
   background: rgb(170, 104, 57);
-  padding: 0;
-  font-size: 1em;
+  padding: 0.4em 1em 0.4em 1em;
+  font-size: 2em;
+  color: rgb(35, 54, 87);
+
+}
+
+.dice-button:hover {
+  cursor: pointer;
+
 }
 
 .selectedDice {
-  background: rgb(128, 90, 21)
+  /* background: rgb(128, 90, 21); */
+  background: rgb(128, 65, 21);
 
 }

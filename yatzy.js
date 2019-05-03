@@ -125,16 +125,16 @@ const store = new Vuex.Store({
       {name: 'Full House',  value: null, locked: false, validation: checkFullHouse}, 
       {name: 'Yatzy',       value: null, locked: false, validation: checkYatzy}, 
       {name: 'Chance',      value: null, locked: false, validation: checkChance}, 
-      {name: 'Total',      value: null, locked:true}
+      {name: 'Total',       value: null, locked:true}
     ],
 
     dices: [
 
-      {name: 'dice1', value: 1, selected: false}, 
-      {name: 'dice2', value: 2, selected: false},
-      {name: 'dice3', value: 3, selected: false}, 
-      {name: 'dice4', value: 4, selected: false},
-      {name: 'dice5', value: 5, selected: false}
+      {name: 'dice1', value: 'Y', selected: false}, 
+      {name: 'dice2', value: 'A', selected: false},
+      {name: 'dice3', value: 'T', selected: false}, 
+      {name: 'dice4', value: 'Z', selected: false},
+      {name: 'dice5', value: 'Y', selected: false}
     ],
 
     players: [
@@ -142,7 +142,8 @@ const store = new Vuex.Store({
       {name: 'player1'}, 
       {name: 'player2'}, 
       {name: 'player3'}
-    ]
+    ],
+    yatzy: ["Y", "A", "T", "Z", "Y"]
   },
 
   mutations: {
@@ -174,9 +175,14 @@ const store = new Vuex.Store({
 
     resetDices(state){
       state.count = 0;
-      state.dices.forEach(dice => {
-        dice.selected = false;
-      });
+      for(let i=0; i<6; i++){
+        state.dices[i].selected = false;
+        state.dices[i].value = state.yatzy[i];
+      }
+      
+      // state.dices.forEach(dice => {
+      //   dice.selected = false;
+      // });
     },
 
     //--------------checking-and-placing-values-in-1st-section-of-table-------------------------------//
@@ -225,7 +231,7 @@ const store = new Vuex.Store({
       return score;
     },
 
-    section2Score(state, getters){
+    totalScore(state, getters){
       let score = 0;
       for(let i=9; i<18; i++){
         if(getters.yatzyTable[i].locked === true){
@@ -314,7 +320,7 @@ function getSuggestions(value, sortedDices){
         occurance ++;
       }
     });
-    return occurance * value;
+      return occurance * value;    
 }
 
 //----------validating-2nd-section-of-table------------------//
