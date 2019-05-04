@@ -162,7 +162,6 @@
 
 .selectedDice {
   background: rgb(128, 65, 21);
-
 }
 
 .dice:hover {
@@ -182,7 +181,10 @@
   font-size: 1.5em;
   color: rgb(35, 54, 87);
   font-size: 3em;
+}
 
+.buttonDisabled {
+  background: rgb(128, 65, 21);
 }
 
 .dice-button:hover {
@@ -225,7 +227,10 @@
     padding: 0.5em 1em 0.5em 1em;
     color: rgb(35, 54, 87);
     font-size: 2em;
-  
+  }
+
+  .buttonDisabled {
+    background: rgb(128, 65, 21);
   }
 }
 
@@ -261,7 +266,10 @@
     padding: 0.5em 1em 0.5em 1em;
     color: rgb(35, 54, 87);
     font-size: 2em;
-  
+  }
+
+  .buttonDisabled {
+    background: rgb(128, 65, 21);
   }
 }
 
@@ -291,8 +299,12 @@
     border-radius: 10px;
     padding: 0.5em 1em 0.5em 1em;
     font-size: 2em;
-  
   }
+
+  .buttonDisabled {
+    background: rgb(128, 65, 21);
+  }
+  
 }
 
 @media (min-width: 600px){
@@ -324,6 +336,9 @@
     border-radius: 10px;
     padding: 0.5em 1em 0.5em 1em;
     font-size: 2em;
-  
+  }
+
+  .buttonDisabled {
+    background: rgb(128, 65, 21);
   }
 }

@@ -30,7 +30,7 @@
             <div>
               <button v-on:click="rollDice"
               class="dice-button"
-              v-bind:class="{disabled:store.getters.count > 2}"
+              v-bind:class="{buttonDisabled:store.getters.count > 2}"
               >Roll</button>
             </div>  
         </div>

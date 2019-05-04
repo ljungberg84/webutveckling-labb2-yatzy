@@ -99,12 +99,15 @@ const store = new Vuex.Store({
   mutations: {
     
     add(state, index){//add value to yatzy table
-      column = state.yatzyTable[index]
+      table = state.yatzyTable;
+      column = table[index]
       if(!column.locked){
         if(state.count !== 0){
           column.locked = true;
         }
       }
+      table[7].value = store.getters.section1Score;
+      table[17].value = store.getters.totalScore;
       checkResults();//check if game over
     },
     
